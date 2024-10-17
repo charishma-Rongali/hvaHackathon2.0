@@ -1,0 +1,207 @@
+html,body {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:space-evenly;
+  margin: 0;
+}
+
+body .users,.categoryModel,.questionAnswer{
+  height:75vh;
+  width:75vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(229, 169, 226);
+  border-radius: 25%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+body .questionAnswer{
+  height:75vh;
+  width:100vh;
+}
+
+body .users,.scoreContainer{
+  justify-content: center;
+  align-items: center;
+} 
+
+.users .gameTitle{
+  color: #143ae5;
+  font-family:'Times New Roman', Times, serif;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.users, form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  align-items: center;
+}
+
+.users label,option {
+  font-weight: bold;
+}
+.users input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #111111;
+  width: 100%;
+}
+
+.users button {
+  padding: 10px 20px;
+  background-color: #fdf8f8;
+  color: rgb(14, 14, 14);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.users button:hover {
+  background-color: #348edd;
+  color: #f9f9f9;
+}
+
+input[type="text"] {
+  border: none; 
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+
+.categoryModel  select{
+  width:60%;
+  height: 40px;
+  font-size: medium;
+}
+
+.categoryModel form button{
+  height: 40px;
+  font-size: medium;
+} 
+
+
+.categoryModel form button:hover{
+  height: 40px;
+  font-size: medium;
+  background-color: #348edd;
+  color: #f9f9f9;
+} 
+
+.exitOrPlayAgain {
+  display: flex;
+  flex-direction: row; 
+  gap: 20px; 
+  align-items: center;
+  justify-content: center;
+}
+
+.exitOrPlayAgain button {
+  background-color: #4d4f4d;
+  color: white;
+  padding: 15px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.exitOrPlayAgain button:hover {
+  background-color: #30c938;
+}
+
+.scoreContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; 
+}
+
+.exitOrPlayAgain {
+  display: flex;
+  flex-direction: row; 
+  gap: 20px; 
+  align-items: center;
+  justify-content: center;
+}
+
+.exitOrPlayAgain button {
+  background-color: #4d4f4d;
+  color: white;
+  padding: 15px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.exitOrPlayAgain button:hover {
+  background-color: #3e563f;
+}
+
+.scoreContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+  width: 60vh;
+  background-color: #f0f0f5;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.playersScores {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.playersScores .player1, .playersScores .player2 {
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  color: #333;
+}
+
+.playersScores p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-weight: bold;
+}
+
+.playersScores p span {
+  font-size: 28px;
+  color: #007bff;
+  margin-top: 10px;
+}
+
+.whoWon {
+  font-size: 30px;
+  font-family: 'Georgia', serif;
+  color: #4CAF50; 
+  margin-top: 30px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.whoWon:hover {
+  color: #ff6347; 
+}

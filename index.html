@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trivia</title>
+    <link href="index.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="users">
+      <h1 class="gameTitle">TwoPlayer TRIVIA</h1>
+      <h3>ENTER USER NAMES</h3>
+      <form>
+        <div>
+          <label for="user1">USER1:</label
+          ><input
+            id="user1"
+            class="user1Name"
+            type="text"
+            placeholder="user1 name"
+          />
+        </div>
+        <div>
+          <label for="user2">USER2:</label
+          ><input
+            id="user2"
+            class="user2Name"
+            type="text"
+            placeholder="user2 name"
+          />
+        </div>
+        <div>
+          <button type="submit" onclick="userSubmitForm(event)">submit</button>
+        </div>
+      </form>
+    </div>
+    <div class="categoryModel">
+      <h1>SELECT CATEGORY</h1>
+    </div>
+    <div class="questionAnswer"></div>
+      <div class="exitOrPlayAgain">
+        <button id="endGameButton" type="button">End Game</button>
+        <button id="playAgainButton" type="button">
+          Select Another Category
+        </button>
+      </div>
+    <div class="scoreContainer">
+      <div class="playersScores">
+        <div class="player1">
+          <p>Player 1<span>0</span></p>
+        </div>
+        <div class="player2">
+          <p>Player 2 <span>0</span></p>
+        </div>
+      </div>
+      <h1 class="whoWon"></h1>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
