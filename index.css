@@ -1,14 +1,17 @@
-html,body {
+html,
+body {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   margin: 0;
 }
 
-body .users,.categoryModel,.questionAnswer{
-  height:75vh;
-  width:75vh;
+body .users,
+.categoryModel,
+.questionAnswer {
+  height: 75vh;
+  width: 75vh;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -18,24 +21,26 @@ body .users,.categoryModel,.questionAnswer{
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-body .questionAnswer{
-  height:75vh;
-  width:100vh;
+body .questionAnswer {
+  height: 75vh;
+  width: 100vh;
 }
 
-body .users,.scoreContainer{
+body .users,
+.scoreContainer {
   justify-content: center;
   align-items: center;
-} 
+}
 
-.users .gameTitle{
+.users .gameTitle {
   color: #143ae5;
-  font-family:'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   text-align: center;
   margin-top: 20px;
 }
 
-.users, form {
+.users,
+form {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -43,7 +48,8 @@ body .users,.scoreContainer{
   align-items: center;
 }
 
-.users label,option {
+.users label,
+option {
   font-weight: bold;
 }
 .users input {
@@ -69,37 +75,35 @@ body .users,.scoreContainer{
 }
 
 input[type="text"] {
-  border: none; 
+  border: none;
   padding: 10px;
   font-size: 16px;
   text-align: center;
   background-color: #f9f9f9;
 }
 
-
-.categoryModel  select{
-  width:60%;
+.categoryModel select {
+  width: 60%;
   height: 40px;
   font-size: medium;
 }
 
-.categoryModel form button{
+.categoryModel form button {
   height: 40px;
   font-size: medium;
-} 
+}
 
-
-.categoryModel form button:hover{
+.categoryModel form button:hover {
   height: 40px;
   font-size: medium;
   background-color: #348edd;
   color: #f9f9f9;
-} 
+}
 
 .exitOrPlayAgain {
   display: flex;
-  flex-direction: row; 
-  gap: 20px; 
+  flex-direction: row;
+  gap: 20px;
   align-items: center;
   justify-content: center;
 }
@@ -113,10 +117,6 @@ input[type="text"] {
   border-radius: 15px;
   cursor: pointer;
   font-size: 16px;
-}
-
-.exitOrPlayAgain button:hover {
-  background-color: #30c938;
 }
 
 .scoreContainer {
@@ -124,32 +124,15 @@ input[type="text"] {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px; 
+  gap: 20px;
 }
 
 .exitOrPlayAgain {
   display: flex;
-  flex-direction: row; 
-  gap: 20px; 
+  flex-direction: row;
+  gap: 20px;
   align-items: center;
   justify-content: center;
-}
-
-.exitOrPlayAgain button {
-  background-color: #4d4f4d;
-  color: white;
-  padding: 15px 20px;
-  margin: 10px;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  font-size: 16px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease;
-}
-
-.exitOrPlayAgain button:hover {
-  background-color: #3e563f;
 }
 
 .scoreContainer {
@@ -173,8 +156,9 @@ input[type="text"] {
   margin-bottom: 20px;
 }
 
-.playersScores .player1, .playersScores .player2 {
-  font-family: 'Arial', sans-serif;
+.playersScores .player1,
+.playersScores .player2 {
+  font-family: "Arial", sans-serif;
   font-size: 18px;
   color: #333;
 }
@@ -195,13 +179,13 @@ input[type="text"] {
 
 .whoWon {
   font-size: 30px;
-  font-family: 'Georgia', serif;
-  color: #4CAF50; 
+  font-family: "Georgia", serif;
+  color: #4caf50;
   margin-top: 30px;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 .whoWon:hover {
-  color: #ff6347; 
+  color: #ff6347;
 }
