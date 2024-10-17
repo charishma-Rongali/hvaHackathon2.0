@@ -58,6 +58,66 @@ const MaxEasy = 2;
 const MaxMedium = 4;
 const Diff = 6;
 
+
+let whoWon = "";
+const findWinnerLooser = () => {
+  if (player1Score > player2Score) {
+    whoWon = `${player1Name} wins!`;
+  } else if (player1Score < player2Score) {
+    whoWon = `${player2Name} wins!`;
+  } else {
+    whoWon = "It's a Draw!";
+  }
+};
+
+const scoreContainer = () => {
+  document.getElementsByClassName("exitOrPlayAgain")[0].style.display = "none";
+  document.getElementsByClassName("scoreContainer")[0].style.display = "block";
+  findWinnerLooser();
+  document.querySelector(".playersScores .player1 p span").textContent =
+    player1Score;
+  document.querySelector(".playersScores .player2 p span").textContent =
+    player2Score;
+
+  document.querySelector(".whoWon").textContent = whoWon;
+};
+
+const playAgainAnotherCategory = () => {
+  totalArray = [];
+  quesCount = 0;
+  document.getElementsByClassName("questionAnswer")[0].style.display = "none";
+  document.getElementsByClassName("exitOrPlayAgain")[0].style.display = "none";
+  console.log(currentCategories);
+  currentCategories = currentCategories.filter(
+    (cat) => cat.value !== Slectedcategory
+  );
+  Slectedcategory = "";
+  console.log("filtered categories:", currentCategories);
+  document.getElementsByClassName("categoryModel")[0].style.display = "flex";
+  dropDown(currentCategories);
+};
+
+const catgoryEndBefore = 1;
+
+const exitOrPlayAgain = () => {
+  if (currentCategories.length === catgoryEndBefore) {
+    const playAgainButton = document.getElementById("playAgainButton");
+    if (playAgainButton) {
+      console.log("i am here");
+      playAgainButton.style.display = "none";
+    }
+  }
+  document.getElementsByClassName("questionAnswer")[0].style.display = "none";
+  document.getElementsByClassName("categoryModel")[0].style.display = "none";
+  document.getElementsByClassName("exitOrPlayAgain")[0].style.display = "block";
+  document
+    .getElementById("endGameButton")
+    .addEventListener("click", scoreContainer);
+  document
+    .getElementById("playAgainButton")
+    .addEventListener("click", () => playAgainAnotherCategory());
+};
+
 const nextQuestionAnswer = (correctAnswer) => {
   const selectedOption = document.querySelector('input[name="answer"]:checked');
   if (!selectedOption) {
@@ -88,76 +148,8 @@ const nextQuestionAnswer = (correctAnswer) => {
   displayQuestionAnswers(totalArray, quesCount);
 };
 
-let whoWon = "";
-const findWinnerLooser = () => {
-  if (player1Score > player2Score) {
-    whoWon = `${player1Name} wins!`;
-  } else if (player1Score < player2Score) {
-    whoWon = `${player2Name} wins!`;
-  } else {
-    whoWon = "It's a Draw!";
-  }
-};
-
-const scoreContainer = () => {
-  document.getElementsByClassName("exitOrPlayAgain")[0].style.display = "none";
-  document.getElementsByClassName("scoreContainer")[0].style.display = "block";
-  findWinnerLooser();
-  document.querySelector(".playersScores .player1 p span").textContent =
-    player1Score;
-  document.querySelector(".playersScores .player2 p span").textContent =
-    player2Score;
-
-  document.querySelector(".whoWon").textContent = whoWon;
-};
-
-const dropDown = (currentCategories) => {
-  const select = document.getElementById("SelectCategory");
-  select.innerHTML = "";
-  currentCategories.forEach((category) => {
-    const option = document.createElement("option");
-    option.value = category.value;
-    option.textContent = category.text;
-    select.appendChild(option);
-  });
-};
-
-const playAgainAnotherCategory = () => {
-  totalArray = [];
-  quesCount = 0;
-  document.getElementsByClassName("questionAnswer")[0].style.display = "none";
-  document.getElementsByClassName("exitOrPlayAgain")[0].style.display = "none";
-  console.log(currentCategories);
-  currentCategories = currentCategories.filter(
-    (cat) => cat.value !== Slectedcategory
-  );
-  Slectedcategory = "";
-  console.log("filtered categories:", currentCategories);
-  document.getElementsByClassName("categoryModel")[0].style.display = "flex";
-  dropDown(currentCategories);
-};
-
-const catgoryEndBefore = 1;
-const exitOrPlayAgain = () => {
-  if (currentCategories.length === catgoryEndBefore) {
-    const playAgainButton = document.getElementById("playAgainButton");
-    if (playAgainButton) {
-      console.log("i am here");
-      playAgainButton.style.display = "none";
-    }
-  }
-  document.getElementsByClassName("questionAnswer")[0].style.display = "none";
-  document.getElementsByClassName("categoryModel")[0].style.display = "none";
-  document.getElementsByClassName("exitOrPlayAgain")[0].style.display = "block";
-  document
-    .getElementById("endGameButton")
-    .addEventListener("click", scoreContainer);
-  document
-    .getElementById("playAgainButton")
-    .addEventListener("click", () => playAgainAnotherCategory());
-};
-
 const maxQuesCount = 6;
+
 const displayQuestionAnswers = (totalArray, quesCount) => {
   if (quesCount === maxQuesCount) {
     exitOrPlayAgain(player1Score, player2Score);
@@ -166,10 +158,7 @@ const displayQuestionAnswers = (totalArray, quesCount) => {
   document.getElementsByClassName("questionAnswer")[0].style.display = "block";
   const question = totalArray[quesCount].Question;
   const correctAnswer = totalArray[quesCount].correctAnswer;
-
   const parent = document.getElementsByClassName("questionAnswer")[0];
-
-  //for rerendring clearing the previous element
   parent.innerHTML = "";
   const mainheading = document.createElement("h1");
   if (quesCount === 0) {
@@ -241,15 +230,24 @@ const getQuestionAnswers = async (event) => {
   }
 };
 
+const dropDown = (currentCategories) => {
+  const select = document.getElementById("SelectCategory");
+  select.innerHTML = "";
+  currentCategories.forEach((category) => {
+    const option = document.createElement("option");
+    option.value = category.value;
+    option.textContent = category.text;
+    select.appendChild(option);
+  });
+};
+
 const categoryDisplay = () => {
   const categoryModel = document.getElementsByClassName("categoryModel")[0];
   const form = document.createElement("form");
   form.id = "categoryForm";
-
   const select = document.createElement("select");
   select.id = "SelectCategory";
   select.name = "category";
-
   form.appendChild(select);
   categoryModel.appendChild(form);
   dropDown(allCategories);
